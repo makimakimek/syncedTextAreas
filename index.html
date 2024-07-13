@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Synced Text Areas</title>
+</head>
+
+<body>
+    <div class = "page" style = "margin-top: 200px;">
+        <div class = "twoTextAreas" style = "display: flex; gap: 150px; justify-content: center;">
+            <textarea id = "firstTextArea" rows = "10" cols = "50" style = "resize: none;"></textarea>
+
+            <textarea id = "secondTextArea" rows = "10" cols = "50" style = "resize: none;"></textarea>
+        </div>
+    </div>
+
+    <script>
+        function syncingOfTextAreas() {
+            firstTextArea = document.querySelector("#firstTextArea");
+            secondTextArea = document.querySelector("#secondTextArea");
+
+            firstTextArea.addEventListener("input", (event) => {
+                secondTextArea.value = firstTextArea.value;
+            });
+
+            secondTextArea.addEventListener("input", (event) => {
+                firstTextArea.value = secondTextArea.value;
+            });
+        }
+
+        syncingOfTextAreas();
+    </script>
+</body>
+
+</html>
